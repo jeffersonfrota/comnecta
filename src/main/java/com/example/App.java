@@ -1,5 +1,7 @@
 package com.example;
 import java.sql.*;
+
+import com.example.conexaoBD.conexaoBD;
 import com.example.util.Viewer;
 import java.util.ArrayList;
 
@@ -11,7 +13,7 @@ public class App
     {
         try {
             
-            Connection conexao = DriverManager.getConnection("jdbc:postgresql://localhost:5432/teste", "postgres", "nk29wp38s9");
+            Connection conexao = conexaoBD.conectar();
             
             if(conexao != null){
                 System.out.println("Banco conectado! ");
