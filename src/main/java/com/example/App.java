@@ -11,39 +11,40 @@ public class App
 {
     public static void main( String[] args )
     {
-        try(Connection conexao = conexaoBD.conectar()){
-            
-            String sql = "SELECT * FROM viewer";
 
+        String sql = "SELECT * FROM viewer";
+
+        try(Connection conexao = conexaoBD.conectar(); PreparedStatement preparedStatement = conexao.prepareStatement(sql))
+        {
+            
             System.out.println("Banco conectado! ");
-            Statement stn = conexao.createStatement();
+            //Statement stn = conexao.createStatement();
 
-            ResultSet result = stn.executeQuery(sql);
-            ArrayList<Viewer> arrayList = new ArrayList<>();
+            try (ResultSet resultSet = preparedStatement.executeQuery()) 
+            {
+                
+                ArrayList<Viewer> arrayList = new ArrayList<>();
 
-            while(result.next()) {
-            
-                Viewer viewer = null;
+                while (resultSet.next()) {
+                    
+                    Viewer viewer = null;
 
-                viewer = new Viewer( result.getLong("cpf_cnpj"), result.getString("nome"),  result.getString("email"),  result.getInt("num_seguidores"), result.getString("nacionalidade"), result.getString("status"), result.getString("descricao"));
+                    viewer = new Viewer( resultSet.getLong("cpf_cnpj"), resultSet.getString("nome"),  resultSet.getString("email"),  resultSet.getInt("num_seguidores"), resultSet.getString("nacionalidade"), resultSet.getString("status"), resultSet.getString("descricao"));
 
+                    arrayList.add(viewer);
 
-                //System.out.print(viewer.toString());
+                    //System.out.print(viewer.toString());
 
-                arrayList.add(viewer);
+                    //System.out.println("cpf_cnpj: " + resultSet.getLong("cpf_cnpj") + ", nome: " + resultSet.getString("nome") + ", email: " + resultSet.getString("email") + ", nacionalidade: " + resultSet.getString("nacionalidade") + ", num_seguidores: " + resultSet.getInt("num_seguidores") + ", status: " + resultSet.getString("status")  + ", descricão: " + resultSet.getString("descricao"));    
 
-                //System.out.println("cpf_cnpj: " + result.getLong("cpf_cnpj") + ", nome: " + result.getString("nome") + ", email: " + result.getString("email") + ", nacionalidade: " + result.getString("nacionalidade") + ", num_seguidores: " + result.getInt("num_seguidores") + ", status: " + result.getString("status")  + ", descricão: " + result.getString("descricao"));    
-            } 
+                }
 
-            for(Viewer v : arrayList){
-                System.out.print(v.toString());
+                for(Viewer v : arrayList){
+                    System.out.print(v.toString());
+                }
+                conexaoBD.fecharConexao(conexao);
             }
-        
-            result.close();
-            stn.close();
-            conexaoBD.fecharConexao(conexao);
-           
-        } catch (Exception e) {
+        }catch (SQLException e) {
             e.printStackTrace();
         } 
     }
