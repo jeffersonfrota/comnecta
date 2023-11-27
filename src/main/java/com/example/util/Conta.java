@@ -83,6 +83,6 @@ public class Conta{
 
     @Override
     public String toString() {
-        return "Viewer = cpf_cnpj: " + cpf_cnpj + ", nome: " + nome + ", email: " + email + ", nacionalidade: "+ nacionalidade + ", status: " + status + ", descricao: " + descricao + ", num_seguidores: "+ num_seguidores + " , cartoes: " + arrCartao.toString() + "\n";
+        return "Viewer = cpf_cnpj: " + cpf_cnpj + ", nome: " + nome + ", email: " + email + ", nacionalidade: "+ nacionalidade + ", status: " + status + ", descricao: " + descricao + ", num_seguidores: "+ num_seguidores + " , cartoes: \n" + arrCartao.toString() + "\n";
     }
 }
