@@ -1,9 +1,12 @@
 package com.example.util;
+import java.util.ArrayList;
 
 public class Conta{
+
     private long cpf_cnpj;
     private String nome, email, nacionalidade, status, descricao;
     private int num_seguidores;
+    private ArrayList<Cartao> arrCartao;
 
     public Conta(long cpf_cnpj, String nome, String email, int num_seguidores, String nacionalidade, String status, String descricao ){
         
@@ -14,7 +17,13 @@ public class Conta{
         this.num_seguidores = num_seguidores;
         this.status = status;
         this.descricao = descricao;
+        this.arrCartao = new ArrayList<>(); 
     }
+
+    public void addCartao(Cartao cartao){
+        this.arrCartao.add(cartao);
+    }
+
 
     public long getCpf_cnpj() {
         return cpf_cnpj;
@@ -74,6 +83,6 @@ public class Conta{
 
     @Override
     public String toString() {
-        return "Viewer = cpf_cnpj: " + cpf_cnpj + ", nome: " + nome + ", email: " + email + ", nacionalidade: "+ nacionalidade + ", status: " + status + ", descricao: " + descricao + ", num_seguidores: "+ num_seguidores + "\n";
+        return "Viewer = cpf_cnpj: " + cpf_cnpj + ", nome: " + nome + ", email: " + email + ", nacionalidade: "+ nacionalidade + ", status: " + status + ", descricao: " + descricao + ", num_seguidores: "+ num_seguidores + " , cartoes: " + arrCartao.toString() + "\n";
     }
 }
