@@ -1,7 +1,6 @@
 # comnecta
 
-* ESCOPO
+* OBJETIVO DO PROJETO 
 
-* Simulacao de um aplicativo de streamming
-* Teste com conexao de banco de dados relacional - postgres pra ser mais exato;
-* Desenvolvimento ORIENTACAO A OBJETOS com JAVA; 
+  Simular um aplicativo de streaming, utilizando conceitos de OO alem de boas praticas em conexao com banco de dados.
+
