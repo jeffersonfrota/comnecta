@@ -1,10 +1,9 @@
 package com.example.recuperaDadosBD;
+
 import java.sql.*;
 import java.util.ArrayList;
-
 import com.example.conexaoBD.conexaoBD;
-import com.example.util.Cartao;
-import com.example.util.Viewer;
+import com.example.util.*;
 
 public final class recuperaDadosBD {
 
