@@ -2,6 +2,12 @@ package com.example.conexaoBD;
 import java.sql.*;
 
 public class conexaoBD {
+
+    //construtor suprimido, pois, essa classe tem como objetivo, apenas agrupar métodos.
+    private conexaoBD(){
+        throw new AssertionError();
+    }
+
     //url do banco de dados a ser processado(programa, banco de dados, ip e porta, nome do banco de dado em questao)
 
     private static String jdbcUrl = "jdbc:postgresql://localhost:5432/teste"; 
