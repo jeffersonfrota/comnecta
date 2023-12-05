@@ -6,4 +6,9 @@ public class Viewer extends Conta{
         super(cpf_cnpj, nome, email, num_seguidores, nacionalidade, status, descricao);
     }
 
+
+    @Override
+    public String toString() {
+        return super.toString() + "\n";
+    }
 }

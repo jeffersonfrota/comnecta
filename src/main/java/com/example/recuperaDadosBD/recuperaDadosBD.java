@@ -35,10 +35,6 @@ public final class recuperaDadosBD {
                     
                     viewerList.add(viewer);
 
-                    //System.out.print(viewer.toString());
-
-                    //System.out.println("cpf_cnpj: " + resultSet.getLong("cpf_cnpj") + ", nome: " + resultSet.getString("nome") + ", email: " + resultSet.getString("email") + ", nacionalidade: " + resultSet.getString("nacionalidade") + ", num_seguidores: " + resultSet.getInt("num_seguidores") + ", status: " + resultSet.getString("status")  + ", descricão: " + resultSet.getString("descricao"));    
-
                 }
 
                 conexaoBD.fecharConexao(conexao);
@@ -48,4 +44,37 @@ public final class recuperaDadosBD {
         } 
         return viewerList != null ? viewerList: null;
     } 
+
+    public final static ArrayList<Streamer> recuperaStreamers(){
+
+        String sql = "SELECT * FROM streamer s LEFT JOIN cartao c ON s.cpf_cnpj = c.cpf_cnpj_conta";
+
+        ArrayList<Streamer> streamerList = new ArrayList<>();
+
+        try(Connection conexao = conexaoBD.conectar(); PreparedStatement preparedStatement = conexao.prepareStatement(sql))
+        {
+            
+            System.out.println("Banco conectado! ");
+            //Statement stn = conexao.createStatement();
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) 
+            {
+
+                while (resultSet.next()) {
+                    
+                    Streamer streamer = new Streamer( resultSet.getLong("cpf_cnpj"), resultSet.getString("nome"),  resultSet.getString("email"),resultSet.getInt("num_seguidores"), resultSet.getString("nacionalidade"), resultSet.getString("status"), resultSet.getString("descricao"), resultSet.getInt("num_vizualizacoes"));
+
+                    //System.out.print(streamer.toString()); 
+                     streamer.addCartao(new Cartao(resultSet.getLong("numero"), resultSet.getInt("codSeguranca"), resultSet.getDate("dataVencimento") != null ? resultSet.getDate("dataVencimento").toLocalDate() : null, resultSet.getLong("cpf_cnpj_conta")));
+
+                    streamerList.add(streamer);
+                }
+                conexaoBD.fecharConexao(conexao);
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        } 
+        return streamerList != null ? streamerList: null;
+        
+    }
 }
