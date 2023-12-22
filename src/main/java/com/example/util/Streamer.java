@@ -17,6 +17,7 @@ public class Streamer extends Conta{
         this.num_vizualizacao = num_vizualizacao;
     }
 
+    @Override
     public String toString() {
         return super.toString() + ", num_visuzalição: " + this.num_vizualizacao + "\n";
     }
