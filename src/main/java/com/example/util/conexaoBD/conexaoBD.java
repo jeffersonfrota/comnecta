@@ -1,4 +1,4 @@
-package com.example.conexaoBD;
+package com.example.util.conexaoBD;
 import java.sql.*;
 
 public class conexaoBD {

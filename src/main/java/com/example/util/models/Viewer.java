@@ -1,4 +1,4 @@
-package com.example.util;
+package com.example.util.models;
 
 public class Viewer extends Conta{
 
