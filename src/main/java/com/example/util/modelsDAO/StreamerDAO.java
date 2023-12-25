@@ -30,7 +30,7 @@ public final class StreamerDAO {
 
                 while (resultSet.next()) {
                     
-                    Streamer streamer = new Streamer( resultSet.getLong("cpf_cnpj"), resultSet.getString("nome"),  resultSet.getString("email"),resultSet.getInt("num_seguidores"), resultSet.getString("nacionalidade"), resultSet.getString("status"), resultSet.getString("descricao"), resultSet.getInt("num_vizualizacoes"));
+                    Streamer streamer = new Streamer( resultSet.getString("cpf_cnpj"), resultSet.getString("nome"),  resultSet.getString("email"),resultSet.getInt("num_seguidores"), resultSet.getString("nacionalidade"), resultSet.getString("status"), resultSet.getString("descricao"), resultSet.getInt("num_vizualizacoes"));
 
                     //System.out.print(streamer.toString()); 
                      streamer.addCartao(new Cartao(resultSet.getLong("numero"), resultSet.getInt("codSeguranca"), resultSet.getDate("dataVencimento") != null ? resultSet.getDate("dataVencimento").toLocalDate() : null, resultSet.getLong("cpf_cnpj_conta")));

@@ -4,7 +4,7 @@ public class Streamer extends Conta{
     
     private int num_vizualizacao;
 
-    public Streamer(long cpf_cnpj, String nome, String email, int num_seguidores, String nacionalidade, String status, String descricao, int num_vizualizacao){
+    public Streamer(String cpf_cnpj, String nome, String email, int num_seguidores, String nacionalidade, String status, String descricao, int num_vizualizacao){
         super(cpf_cnpj, nome, email, num_seguidores, nacionalidade, status, descricao);
         this.num_vizualizacao = num_vizualizacao;
     }

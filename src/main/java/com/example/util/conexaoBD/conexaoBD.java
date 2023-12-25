@@ -10,7 +10,7 @@ public class conexaoBD {
 
     //url do banco de dados a ser processado(programa, banco de dados, ip e porta, nome do banco de dado em questao)
 
-    private static String jdbcUrl = "jdbc:postgresql://localhost:5432/teste"; 
+    private static String jdbcUrl = "jdbc:postgresql://localhost:5432/test"; 
     //usuario do banco
     private static String userName = "postgres";
     //senha do banco

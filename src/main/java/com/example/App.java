@@ -20,5 +20,11 @@ public class App
           for(Streamer s : streamers){
             System.out.print(s.toString());
         }
+
+
+        Viewer viewer = new Viewer("00000000072", "Jeff", "Jeff@gmail.com", 7, "Brasileira", "s", "Estudante");
+        boolean result = ViewerDAO.insertViewer(viewer);
+        System.out.println(result);
+
     }
 }
