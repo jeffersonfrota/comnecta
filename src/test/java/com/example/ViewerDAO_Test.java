@@ -17,8 +17,24 @@ public class ViewerDAO_Test {
 
     @Test
     public void insertViewerTest(){
-        Viewer viewer = new Viewer("000000000720", "Jeff", "Jeff@gmail.com", 7, "Brasileira", "s", "Estudante");
+        Viewer viewer = new Viewer("00000000077", "Jeff", "Jeff@gmail.com", 7, "Brasileira", "s", "Estudante");
         boolean result = ViewerDAO.insertViewer(viewer);
+        System.out.println(result);
+        assertTrue(result);
+    }
+
+    @Test
+    public void removeViewerTest(){
+        Viewer viewer = new Viewer("00000000077", "Jeff", "Jeff@gmail.com", 7, "Brasileira", "s", "Estudante");
+         boolean result = ViewerDAO.removeViewer(viewer);
+        System.out.println(result);
+        assertTrue(result);
+    }
+
+    @Test
+    public void updateViewerTest(){
+        Viewer viewer = new Viewer("00000000072", "Jeff", "Jeff@gmail.com", 7, "Brasileira", "s", "Estudante");
+        boolean result = ViewerDAO.updateViewer(viewer);
         System.out.println(result);
         assertTrue(result);
     }

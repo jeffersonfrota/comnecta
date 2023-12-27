@@ -76,9 +76,44 @@ public final class ViewerDAO {
     
             return linhasAfetadasConta > 0 && linhasAfetadasViewer > 0;
 
-        } catch (Exception e) {
-           throw new RuntimeException(e);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     } 
 
+    public final static boolean removeViewer(Viewer viewer){
+        
+        String sql = "DELETE FROM viewer WHERE cpf_cnpj = ? ";
+
+        try (Connection connection = conexaoBD.conectar(); PreparedStatement        preparedStatement = connection.prepareStatement(sql)) {
+
+            preparedStatement.setString(1, viewer.getCpf_cnpj()); 
+        
+            int linhasAfetadas = preparedStatement.executeUpdate();
+
+            return linhasAfetadas > 0;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public final static boolean updateViewer(Viewer viewer){
+        
+        String sql = "UPDATE viewer SET nome = ?, email = ? WHERE cpf_cnpj = ?";
+
+        try(Connection connection = conexaoBD.conectar(); PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+       
+            preparedStatement.setString(1, viewer.getNome());
+            preparedStatement.setString(2, viewer.getEmail());
+            preparedStatement.setString(3, viewer.getCpf_cnpj());
+
+            int linhasAfetadas = preparedStatement.executeUpdate();
+
+            return linhasAfetadas > 0;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
