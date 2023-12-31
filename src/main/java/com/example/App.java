@@ -14,12 +14,5 @@ public class App
             System.out.print(v.toString());
         }
         
-      /*
-        Viewer viewer = new Viewer("00000000059", "Júck", "Júck@gmail.com", 7, "Brasileira", "s", "Estudante");
-        boolean result = ViewerDAO.insertViewer(viewer);
-        System.out.println(result);
-       */
- 
-        
     }
 }

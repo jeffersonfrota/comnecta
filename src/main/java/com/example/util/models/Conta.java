@@ -1,7 +1,7 @@
 package com.example.util.models;
 import java.util.ArrayList;
 
-public class Conta{
+public abstract class Conta{
 
     private String cpf_cnpj;
     private String nome, email, nacionalidade, status, descricao;

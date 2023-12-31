@@ -7,9 +7,9 @@ public class Cartao {
     private long numCartao;
     private int codSeguranca;
     private LocalDate dataVencimento;
-    private long cpf_cnpj_conta;
+    private String cpf_cnpj_conta;
 
-    public Cartao(long numCartao, int codSeguranca, LocalDate dataVencimento, long cpf_cnpj_conta){
+    public Cartao(long numCartao, int codSeguranca, LocalDate dataVencimento, String cpf_cnpj_conta){
         
         this.numCartao = numCartao;
         this.codSeguranca = codSeguranca;
@@ -42,11 +42,11 @@ public class Cartao {
         this.dataVencimento = dataVencimento;
     }
 
-    public long getCpf_cnpj_conta() {
+    public  String getCpf_cnpj_conta() {
         return cpf_cnpj_conta;
     }
 
-    public void setCpf_cnpj_conta(long cpf_cnpj_conta) {
+    public void setCpf_cnpj_conta(String cpf_cnpj_conta) {
         this.cpf_cnpj_conta = cpf_cnpj_conta;
     }
 
