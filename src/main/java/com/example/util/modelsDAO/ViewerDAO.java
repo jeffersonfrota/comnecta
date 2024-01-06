@@ -3,7 +3,6 @@ package com.example.util.modelsDAO;
 import java.sql.*;
 import java.util.ArrayList;
 import com.example.util.conexaoBD.conexaoBD;
-//import com.example.util.models.Cartao;
 import com.example.util.models.Viewer;
 
 public final class ViewerDAO {
@@ -16,7 +15,7 @@ public final class ViewerDAO {
     public final static ArrayList<Viewer> getViewers()
     {
 
-        String sql = "SELECT * FROM viewer v LEFT JOIN conta c ON v.cpf_cnpj_viewer = c.cpf_cnpj";
+        String sql = "SELECT * FROM viewer v JOIN conta c ON v.cpf_cnpj_viewer = c.cpf_cnpj";
         ArrayList<Viewer> viewerList = new ArrayList<>();
 
         try(Connection conexao = conexaoBD.conectar(); PreparedStatement preparedStatementConta = conexao.prepareStatement(sql);ResultSet resultSet = preparedStatementConta.executeQuery())
